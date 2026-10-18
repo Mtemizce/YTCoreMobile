@@ -1,25 +1,38 @@
 {
   "expo": {
-    "name": "ytcoremobile",
+    "name": "YT Core",
     "slug": "ytcoremobile",
-    "version": "1.0.0",
-    "orientation": "portrait",
+    "scheme": "ytcore",
+    "version": "0.1.0",
+    "orientation": "default",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "ios": {
-      "supportsTablet": true
-    },
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": { "supportsTablet": true, "bundleIdentifier": "com.ytcore.mobile" },
     "android": {
+      "package": "com.ytcore.mobile",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#4f46e5",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
+      "permissions": ["POST_NOTIFICATIONS"],
       "predictiveBackGestureEnabled": false
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      ["expo-location", {
+        "locationAlwaysAndWhenInUsePermission": "Kurye olarak teslimat sırasında konumunuz müşterilere ve yönetime yansıtılır.",
+        "locationWhenInUsePermission": "Teslimat takibi için konumunuz kullanılır.",
+        "isAndroidBackgroundLocationEnabled": true,
+        "isAndroidForegroundServiceEnabled": true
+      }],
+      ["expo-notifications", { "color": "#4f46e5" }],
+      ["expo-build-properties", { "android": { "usesCleartextTraffic": false } }]
+    ],
+    "experiments": { "typedRoutes": true }
   }
 }
